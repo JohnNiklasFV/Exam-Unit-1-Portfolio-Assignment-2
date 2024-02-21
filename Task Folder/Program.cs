@@ -25,3 +25,5 @@ string taskID = "psu31_4"; // We get the taskID from the previous response and u
 // Fetch the details of the task from the server.
 Response task1Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); // Get the task from the server
 Console.WriteLine(task1Response);
+
+// ANSWER TO FIRST TASK
