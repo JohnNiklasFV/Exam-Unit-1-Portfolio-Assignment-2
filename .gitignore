@@ -9,6 +9,8 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.obj
+*Portfolio Assignment 2 - Exam Unit 2.csproj
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
