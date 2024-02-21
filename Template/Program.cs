@@ -7,7 +7,7 @@ Console.Clear();
 Console.WriteLine("Starting Assignment 2");
 
 // SETUP 
-const string myPersonalID = "psu31_4"; // GET YOUR PERSONAL ID FROM THE ASSIGNMENT PAGE https://mm-203-module-2-server.onrender.com/
+const string myPersonalID = "198aa4ab2a4bf1b2cd6e55676663bc5ce2196dd1bcef49d6efe68fff9db26218"; // GET YOUR PERSONAL ID FROM THE ASSIGNMENT PAGE https://mm-203-module-2-server.onrender.com/
 const string baseURL = "https://mm-203-module-2-server.onrender.com/";
 const string startEndpoint = "start/"; // baseURl + startEndpoint + myPersonalID
 const string taskEndpoint = "task/";   // baseURl + taskEndpoint + myPersonalID + "/" + taskID
@@ -19,7 +19,7 @@ HttpUtils httpUtils = HttpUtils.instance;
 // We start by registering and getting the first task
 Response startRespons = await httpUtils.Get(baseURL + startEndpoint + myPersonalID);
 Console.WriteLine($"Start:\n{Colors.Magenta}{startRespons}{ANSICodes.Reset}\n\n"); // Print the response from the server to the console
-string taskID = ""; // We get the taskID from the previous response and use it to get the task (look at the console output to find the taskID)
+string taskID = "psu31_4"; // We get the taskID from the previous response and use it to get the task (look at the console output to find the taskID)
 
 //#### FIRST TASK 
 // Fetch the details of the task from the server.
