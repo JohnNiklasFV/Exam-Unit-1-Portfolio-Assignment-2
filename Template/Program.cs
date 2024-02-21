@@ -7,7 +7,7 @@ Console.Clear();
 Console.WriteLine("Starting Assignment 2");
 
 // SETUP 
-const string myPersonalID = ""; // GET YOUR PERSONAL ID FROM THE ASSIGNMENT PAGE https://mm-203-module-2-server.onrender.com/
+const string myPersonalID = "psu31_4"; // GET YOUR PERSONAL ID FROM THE ASSIGNMENT PAGE https://mm-203-module-2-server.onrender.com/
 const string baseURL = "https://mm-203-module-2-server.onrender.com/";
 const string startEndpoint = "start/"; // baseURl + startEndpoint + myPersonalID
 const string taskEndpoint = "task/";   // baseURl + taskEndpoint + myPersonalID + "/" + taskID
