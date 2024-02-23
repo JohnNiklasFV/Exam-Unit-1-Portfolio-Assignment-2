@@ -27,3 +27,21 @@ Response task1Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonal
 Console.WriteLine(task1Response);
 
 // ANSWER TO FIRST TASK
+Task task1 = JsonSerializer.Deserialize<Task>(task1Response.content);
+
+string[] parameter = task1?.parameters.Split(',');
+int sum = 0;
+foreach (string integers in parameter)
+{
+    if (int.TryParse(integers, out int totalValue))
+    {
+        sum += totalValue;
+    }
+}
+
+string Result = sum.ToString();
+
+Response task1AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, Result);
+
+Console.WriteLine($"Answer: {Colors.Green}{task1AnswerResponse}{ANSICodes.Reset}");
+
