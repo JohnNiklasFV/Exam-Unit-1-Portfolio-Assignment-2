@@ -48,7 +48,7 @@ Console.WriteLine($"Answer: {Colors.Green}{task1AnswerResponse}{ANSICodes.Reset}
 
 
 //SECOND TASK
-taskID = "aAaa23"; 
+taskID = "aAaa23";
 
 Console.WriteLine("\n-----------------------------------\n");
 Response task2Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); // Get the task from the server
@@ -58,7 +58,7 @@ Console.WriteLine(task2Response);
 Task task2 = JsonSerializer.Deserialize<Task>(task2Response.content);
 
 double fahrenheit = double.Parse(task2.parameters);
-double FahrenheitToCelsiusFormula = (fahrenheit - 32) * 5/9;
+double FahrenheitToCelsiusFormula = (fahrenheit - 32) * 5 / 9;
 
 string Result2 = FahrenheitToCelsiusFormula.ToString("0.00");
 
@@ -66,14 +66,61 @@ Response task2AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myP
 
 Console.WriteLine($"Answer: {Colors.Green}{task2AnswerResponse}{ANSICodes.Reset}");
 
+
+
 // THIRD TASK
 taskID = "otYK2";
 
 Console.WriteLine("\n-----------------------------------\n");
 
+Response task3Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); // Get the task from the server
+Console.WriteLine(task3Response);
+
+//ANSWER TO THIRD TASK
+
+Task task3 = JsonSerializer.Deserialize<Task>(task3Response.content);
+
+string[] uniqueWord = task3.parameters.Split(',');
+
+string[] uniqueWords = new string[uniqueWord.Length];
+int uniqueIndex = 0;
+
+foreach(string word in uniqueWord)
+{
+    string trimmedWord = word.Trim();
+    if (Array.IndexOf(uniqueWords, trimmedWord, 0, uniqueIndex) == -1)
+    {
+        uniqueWords[uniqueIndex++] = trimmedWord;
+    }
+}
+Array.Resize(ref uniqueWords, uniqueIndex);
+
+Array.Sort(uniqueWords, StringComparer.OrdinalIgnoreCase);
+
+string Result3 = string.Join(",", uniqueWords);
+
+
+Response task3AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, Result3);
+
+Console.WriteLine($"Answer: {Colors.Green}{task3AnswerResponse}{ANSICodes.Reset}");
+
+
+// FOURTH TASK
+
+taskID = "KO1pD3";
+
+Console.WriteLine("\n-----------------------------------\n");
+
+Response task4Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); // Get the task from the server
+Console.WriteLine(task4Response);
 
 
 
+
+
+Response task4AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, Result4);
+
+Console.WriteLine($"Answer: {Colors.Green}{task4AnswerResponse}{ANSICodes.Reset}");
 
 
 
