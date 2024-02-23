@@ -114,8 +114,20 @@ Console.WriteLine("\n-----------------------------------\n");
 Response task4Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); // Get the task from the server
 Console.WriteLine(task4Response);
 
+// ANSWER TO TASK FOUR
+
+ Task task4 = JsonSerializer.Deserialize<Task>(task4Response.content);
+
+ string[] numbers = task4.parameters.Split(',');
+
+ int[] series = numbers.Select(int.Parse).ToArray();
+
+ int commonDifference = series[series.Length - 1] - series[series.Length - 2];
+
+ int nextNumber = series[series.Length - 1] + commonDifference;
 
 
+string Result4 = string.Join(",", nextNumber);
 
 
 Response task4AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, Result4);
