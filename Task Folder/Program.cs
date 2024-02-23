@@ -60,7 +60,16 @@ Task task2 = JsonSerializer.Deserialize<Task>(task2Response.content);
 double fahrenheit = double.Parse(task2.parameters);
 double FahrenheitToCelsiusFormula = (fahrenheit - 32) * 5/9;
 
-string 
+string Result2 = FahrenheitToCelsiusFormula.ToString("0.00");
+
+Response task2AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myPersonalID + "/" + taskID, Result2);
+
+Console.WriteLine($"Answer: {Colors.Green}{task2AnswerResponse}{ANSICodes.Reset}");
+
+// THIRD TASK
+taskID = "otYK2";
+
+Console.WriteLine("\n-----------------------------------\n");
 
 
 
