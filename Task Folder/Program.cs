@@ -45,3 +45,35 @@ Response task1AnswerResponse = await httpUtils.Post(baseURL + taskEndpoint + myP
 
 Console.WriteLine($"Answer: {Colors.Green}{task1AnswerResponse}{ANSICodes.Reset}");
 
+
+
+//SECOND TASK
+taskID = "aAaa23"; 
+
+Console.WriteLine("\n-----------------------------------\n");
+Response task2Response = await httpUtils.Get(baseURL + taskEndpoint + myPersonalID + "/" + taskID); // Get the task from the server
+Console.WriteLine(task2Response);
+
+//ANSWER TO SECOND TASK
+Task task2 = JsonSerializer.Deserialize<Task>(task2Response.content);
+
+double fahrenheit = double.Parse(task2.parameters);
+double FahrenheitToCelsiusFormula = (fahrenheit - 32) * 5/9;
+
+string 
+
+
+
+
+
+
+
+
+class Task
+{
+    public string? title { get; set; }
+    public string? description { get; set; }
+    public string? taskID { get; set; }
+    public string? usierID { get; set; }
+    public string? parameters { get; set; }
+}
